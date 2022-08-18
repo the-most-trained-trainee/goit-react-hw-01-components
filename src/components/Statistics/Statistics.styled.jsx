@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const StatisticsSection = styled.section`
+display: block;
   margin: 0;
   padding: 0;
-  margin-top: 30px;
-  margin-bottom: 30px;
   background-color: #ebf0f5;
+  margin: 30px 20px;
 
   h2 {
     font-size: 32px;
