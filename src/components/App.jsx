@@ -1,4 +1,3 @@
-
 import Profile from './Profile/Profile';
 import Statistics from './Statistics/Statistics';
 import FriendList from './FriendList/FriendList';
@@ -8,7 +7,6 @@ import data from 'data.json';
 import friends from 'friends.json';
 import transactions from 'transactions.json';
 
-import styled from 'styled-components';
 
 export const App = () => {
   return (
@@ -16,30 +14,23 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
     >
-      {/* Task 1
-      <Profile 
-      username = {user.username}
-      tag = {user.tag}
-      location = {user.location}
-      avatar = {user.avatar}
-      stats = {user.stats}/>
-
-      Task 2 
-
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
       <Statistics stats={data} />
-      <Statistics title="Upload stats" stats={data} /> */}
-
-      {/* Task 3 */}
+      <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />
-      {/* Task 4 */}
-      {/* <TransactionHistory items={transactions} /> */}
-      
+      <TransactionHistory items={transactions} />
     </div>
   );
 };
