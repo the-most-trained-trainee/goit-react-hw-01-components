@@ -8,6 +8,8 @@ const StyledFriendContainer = styled.li`
   margin: 10px;
   padding: 10px 20px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  font-size: 30px;
+  font-weight: bold;
 
   & img {
     width: 80px;
@@ -19,6 +21,7 @@ const StyledFriendContainer = styled.li`
     height: 30px;
     border-radius: 50%;
     background-color: ${props => (props.isOnline ? 'green' : 'red')};
+    
   }
 `;
 
