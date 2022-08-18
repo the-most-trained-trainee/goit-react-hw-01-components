@@ -1,20 +1,24 @@
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import FriendItem, { friendItemPropTypes } from './FriendItem';
+
 const FriendList = props => {
   return (
-    <ul className="friend-list">
+    <ul>
       {props.friends.map(friend => (
-        <li className="item" key={friend.id}>
-          <span className="status">online status here</span>
-          <img
-            className="avatar"
-            src={friend.avatar}
-            alt="User avatar"
-            width="48"
-          />
-          <p className="name">{friend.name}</p>
-        </li>
+        <FriendItem
+          isOnline={friend.isOnline}
+          name={friend.name}
+          avatar={friend.avatar}
+          key={friend.id}
+        />
       ))}
     </ul>
   );
+};
+
+FriendList.propTypes = {
+  frends: PropTypes.arrayOf(PropTypes.shape(friendItemPropTypes)),
 };
 
 export default FriendList;
