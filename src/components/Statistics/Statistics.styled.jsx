@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StatisticsSection = styled.section`
-display: block;
+  display: block;
   margin: 0;
   padding: 0;
   background-color: #ebf0f5;
@@ -19,7 +19,6 @@ display: block;
     display: flex;
     margin: 0;
     padding: 0;
-    
   }
 `;
 
@@ -29,13 +28,13 @@ const StatisticsContainer = styled.li`
   padding: 10px 25px;
   width: 21%;
   color: #ffffff;
-  background-color: ${props => props.backgroundRandomColor};
+  background-color: ${props => props.backgroundColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   & span {
-      font-weight: bold;
+    font-weight: bold;
   }
 `;
 

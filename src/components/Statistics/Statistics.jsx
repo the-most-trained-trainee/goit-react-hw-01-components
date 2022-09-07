@@ -1,22 +1,17 @@
 import PropTypes from 'prop-types';
-import StatisticsItem from './StatisticsItem';
-
-
+import StatisticsItem, { statisticsItemPropTypes } from './StatisticsItem';
 import { StatisticsSection } from './Statistics.styled';
 
 const Statistics = props => {
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
+  const { title, stats } = props;
 
   return (
     <StatisticsSection>
-      {props.title && <h2 className="title">Upload stats</h2>}
+      {title && <h2 className="title">Upload stats</h2>}
 
       <ul className="stat-list">
-        {props.stats.map(statsItem => (
+        {stats.map(statsItem => (
           <StatisticsItem
-            backgroundRandomColor={getRandomHexColor()}
             key={statsItem.id}
             label={statsItem.label}
             percentage={statsItem.percentage}
@@ -27,8 +22,9 @@ const Statistics = props => {
   );
 };
 
-Statistics.protoTypes = {
-  title: PropTypes.string
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(PropTypes.shape(statisticsItemPropTypes)).isRequired,
 };
 
 export default Statistics;
