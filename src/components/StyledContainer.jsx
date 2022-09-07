@@ -7,6 +7,9 @@ const Container = styled.div`
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 10px;
   justify-content: space-around;
   align-items: center;
   border: 1px dotted #b6cdf2;
