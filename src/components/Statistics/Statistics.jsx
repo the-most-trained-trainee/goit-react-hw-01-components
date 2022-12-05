@@ -1,21 +1,21 @@
 import PropTypes from 'prop-types';
-import StatisticsItem, { statisticsItemPropTypes } from './StatisticsItem';
-import { StatisticsSection } from './Statistics.styled';
+import { StatisticsSection, StatisticsContainer } from './Statistics.styled';
 
-const Statistics = props => {
-  const { title, stats } = props;
+const getRandomHexColor = () => {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
 
+const Statistics = ({ title, stats }) => {
   return (
     <StatisticsSection>
-      {title && <h2 className="title">Upload stats</h2>}
+      {title && <h2 className="title">{title}</h2>}
 
       <ul className="stat-list">
-        {stats.map(statsItem => (
-          <StatisticsItem
-            key={statsItem.id}
-            label={statsItem.label}
-            percentage={statsItem.percentage}
-          />
+        {stats.map(({ id, label, percentage }) => (
+          <StatisticsContainer key={id} backgroundColor={getRandomHexColor()}>
+            <span className="label">{label}</span>
+            <span className="percentage">{percentage}%</span>
+          </StatisticsContainer>
         ))}
       </ul>
     </StatisticsSection>
@@ -24,7 +24,13 @@ const Statistics = props => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.arrayOf(PropTypes.shape(statisticsItemPropTypes)).isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Statistics;

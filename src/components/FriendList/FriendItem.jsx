@@ -1,14 +1,7 @@
 import PropTypes from 'prop-types';
 import StyledFriendContainer from './FriendItem.styled';
 
-const friendItemPropTypes = {
-  avatar: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
-};
-
-const FriendItem = props => {
-  const { isOnline, avatar, name } = props;
+const FriendItem = ({ isOnline, avatar, name }) => {
   return (
     <StyledFriendContainer isOnline={isOnline}>
       <span className="status"></span>
@@ -18,7 +11,10 @@ const FriendItem = props => {
   );
 };
 
-FriendItem.propTypes = friendItemPropTypes;
+FriendItem.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
+};
 
 export default FriendItem;
-export { friendItemPropTypes };
